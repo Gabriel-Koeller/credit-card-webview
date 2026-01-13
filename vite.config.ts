@@ -44,7 +44,7 @@ export default defineConfig({
         drop_console: true, // Remove console.logs em produção
         drop_debugger: true,
       },
-    },
+    } as any,
   },
 
   // Preview para testar build de produção
