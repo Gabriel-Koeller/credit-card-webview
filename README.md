@@ -33,10 +33,11 @@ src/
 ├── hooks/               # Hooks customizados
 │   ├── useCard.ts       # Gerenciamento de cartões
 │   └── useWebView.ts    # Comunicação com app nativo
+├── mocks/               # Dados mockados para desenvolvimento
+│   └── cards.mock.ts    # Dados mock de cartões
 ├── pages/               # Páginas da aplicação
 │   └── CardsPage/       # Tela principal com layout Itaú
 ├── services/            # Serviços e API
-│   └── cardService.ts   # Dados mock e helpers
 ├── styles/              # Estilos globais
 │   ├── GlobalStyles.ts  # Reset e estilos base (Montserrat)
 │   ├── theme.ts         # Design tokens (tema Itaú)
@@ -45,7 +46,8 @@ src/
 │   ├── card.types.ts    # Tipos de cartão
 │   └── theme.types.ts   # Tipos do tema
 └── utils/               # Funções utilitárias
-    └── helpers.ts       # Formatação, validação
+    ├── helpers.ts       # Helpers gerais (formatação, validação, etc)
+    └── cardHelpers.ts   # Helpers específicos de cartões
 ```
 
 ## 🎓 Conceitos e Padrões

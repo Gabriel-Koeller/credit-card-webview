@@ -5,7 +5,8 @@
 import { type FC, useState, useCallback, useEffect } from "react";
 import { CardList, CardSkeleton } from "../../components";
 import { useWebView } from "../../hooks";
-import { getMockCards, formatCurrency } from "../../services";
+import { getMockCards } from "../../mocks";
+import { formatCurrency } from "../../utils";
 import type { CreditCard } from "../../types";
 import * as S from "./CardsPage.styles";
 
