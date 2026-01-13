@@ -19,35 +19,31 @@ Aplicação React TypeScript mobile-first para visualização de cartões de cr�
 - 🎯 **TypeScript Strict** - Tipagem completa e segura
 - 🔄 **WebView Integration** - Comunicação bidirecional com app nativo
 
-## 📁 Estrutura
+## 🎨 Tema do Projeto
 
-```
-src/
-├── components/           # Componentes reutilizáveis
-│   ├── Button/          # Botão com variantes
-│   ├── CardList/        # Carousel de cartões (Embla Carousel)
-│   ├── CreditCard/      # Cartão visual com gradientes
-│   └── Loading/         # Loading e skeletons
-├── contexts/            # React Contexts
-│   └── CardContext.tsx  # Estado global dos cartões
-├── hooks/               # Hooks customizados
-│   ├── useCard.ts       # Gerenciamento de cartões
-│   └── useWebView.ts    # Comunicação com app nativo
-├── mocks/               # Dados mockados para desenvolvimento
-│   └── cards.mock.ts    # Dados mock de cartões
-├── pages/               # Páginas da aplicação
-│   └── CardsPage/       # Tela principal com layout Itaú
-├── services/            # Serviços e API
-├── styles/              # Estilos globais
-│   ├── GlobalStyles.ts  # Reset e estilos base (Montserrat)
-│   ├── theme.ts         # Design tokens (tema Itaú)
-│   └── styled.d.ts      # Tipagem do tema
-├── types/               # Tipagens TypeScript
-│   ├── card.types.ts    # Tipos de cartão
-│   └── theme.types.ts   # Tipos do tema
-└── utils/               # Funções utilitárias
-    ├── helpers.ts       # Helpers gerais (formatação, validação, etc)
-    └── cardHelpers.ts   # Helpers específicos de cartões
+O tema está configurado com cores inspiradas no Itaú:
+
+- **Primary**: `#EC7000` (Laranja)
+- **Secondary**: `#003366` (Azul escuro)
+- **Background**: `#F5F6FA` (Cinza claro)
+- **Font**: Montserrat (Google Fonts)
+
+Edite `src/styles/theme.ts` para customizar cores, espaçamentos e tipografia.
+
+## 🛠️ Como Rodar o Projeto
+
+```bash
+# Instalar dependências
+npm install
+
+# Desenvolvimento (http://localhost:3000)
+npm run dev
+
+# Build de produção
+npm run build
+
+# Preview do build
+npm run preview
 ```
 
 ## 🎓 Conceitos e Padrões
@@ -443,96 +439,36 @@ const MyComponent: FC = () => {
 - **`useCard`**: Para gerenciamento local de cartões em um componente específico
 - **`CardContext`**: Para estado global compartilhado entre múltiplos componentes
 
-## 🛠️ Comandos
+## 📁 Estrutura do Projeto
 
-```bash
-# Instalar dependências
-npm install
-
-# Desenvolvimento (http://localhost:3000)
-npm run dev
-
-# Build de produção
-npm run build
-
-# Preview do build
-npm run preview
 ```
-
-## 📱 Comunicação WebView
-
-> **Nota:** Para detalhes completos sobre o hook `useWebView`, consulte a seção [Hooks Customizados](#-hooks-customizados) acima.
-
-O hook `useWebView` permite comunicação bidirecional com aplicativos nativos (React Native, iOS, Android).
-
-**Exemplo rápido:**
-
-```typescript
-const { notifyCardSelected, notifyCardAction, notifyReady } = useWebView();
-
-// Notificar eventos
-notifyCardSelected(cardId);
-notifyCardAction(cardId, "block");
-notifyReady(); // Quando WebView está pronta
+src/
+├── components/           # Componentes reutilizáveis
+│   ├── Button/          # Botão com variantes
+│   ├── CardList/        # Carousel de cartões (Embla Carousel)
+│   ├── CreditCard/      # Cartão visual com gradientes
+│   └── Loading/         # Loading e skeletons
+├── contexts/            # React Contexts
+│   └── CardContext.tsx  # Estado global dos cartões
+├── hooks/               # Hooks customizados
+│   ├── useCard.ts       # Gerenciamento de cartões
+│   └── useWebView.ts    # Comunicação com app nativo
+├── mocks/               # Dados mockados para desenvolvimento
+│   └── cards.mock.ts    # Dados mock de cartões
+├── pages/               # Páginas da aplicação
+│   └── CardsPage/       # Tela principal com layout Itaú
+├── services/            # Serviços e API
+├── styles/              # Estilos globais
+│   ├── GlobalStyles.ts  # Reset e estilos base (Montserrat)
+│   ├── theme.ts         # Design tokens (tema Itaú)
+│   └── styled.d.ts      # Tipagem do tema
+├── types/               # Tipagens TypeScript
+│   ├── card.types.ts    # Tipos de cartão
+│   └── theme.types.ts   # Tipos do tema
+└── utils/               # Funções utilitárias
+    ├── helpers.ts       # Helpers gerais (formatação, validação, etc)
+    └── cardHelpers.ts   # Helpers específicos de cartões
 ```
-
-**Suporte multiplataforma:**
-
-- ✅ React Native WebView
-- ✅ iOS WKWebView
-- ✅ Android WebView
-- ✅ Fallback para desenvolvimento (console.log)
-
-## 🎨 Customização
-
-### Tema Itaú
-
-O tema está configurado com cores inspiradas no Itaú:
-
-- **Primary**: `#EC7000` (Laranja)
-- **Secondary**: `#003366` (Azul escuro)
-- **Background**: `#F5F6FA` (Cinza claro)
-- **Font**: Montserrat (Google Fonts)
-
-Edite `src/styles/theme.ts` para customizar cores, espaçamentos e tipografia.
-
-### Carousel
-
-O carousel usa **Embla Carousel** com as seguintes configurações:
-
-- Alinhamento centralizado
-- Snap automático para o card mais próximo
-- Suporte completo a touch/swipe e mouse drag
-- Indicadores de posição (dots)
-
-### Cores dos cartões
-
-Cada cartão pode ter cores personalizadas via propriedade `color`:
-
-```typescript
-const card: CreditCard = {
-  // ...
-  color: {
-    primary: "#EC7000",
-    secondary: "#003366",
-    text: "#FFFFFF",
-  },
-};
-```
-
-### Fontes
-
-A fonte **Montserrat** é carregada via Google Fonts no `index.html` e aplicada globalmente através do `GlobalStyles.ts` para garantir consistência em todos os componentes.
-
-## 📦 Build para WebView
-
-O build gera um bundle otimizado em `dist/`:
-
-```bash
-npm run build
-```
-
-O output pode ser servido em um servidor web ou incorporado diretamente na WebView nativa.
 
 ## 🎯 Componentes Principais
 
@@ -576,6 +512,70 @@ Componentes para estados de carregamento:
 - **ListSkeleton**: Skeleton para listas com múltiplos itens
 
 > **Nota:** Para detalhes sobre arquitetura de loading, consulte a seção [Loading e Skeletons](#-loading-e-skeletons) acima.
+
+## 📱 Comunicação WebView
+
+> **Nota:** Para detalhes completos sobre o hook `useWebView`, consulte a seção [Hooks Customizados](#-hooks-customizados) acima.
+
+O hook `useWebView` permite comunicação bidirecional com aplicativos nativos (React Native, iOS, Android).
+
+**Exemplo rápido:**
+
+```typescript
+const { notifyCardSelected, notifyCardAction, notifyReady } = useWebView();
+
+// Notificar eventos
+notifyCardSelected(cardId);
+notifyCardAction(cardId, "block");
+notifyReady(); // Quando WebView está pronta
+```
+
+**Suporte multiplataforma:**
+
+- ✅ React Native WebView
+- ✅ iOS WKWebView
+- ✅ Android WebView
+- ✅ Fallback para desenvolvimento (console.log)
+
+## 🎨 Customização
+
+### Carousel
+
+O carousel usa **Embla Carousel** com as seguintes configurações:
+
+- Alinhamento centralizado
+- Snap automático para o card mais próximo
+- Suporte completo a touch/swipe e mouse drag
+- Indicadores de posição (dots)
+
+### Cores dos cartões
+
+Cada cartão pode ter cores personalizadas via propriedade `color`:
+
+```typescript
+const card: CreditCard = {
+  // ...
+  color: {
+    primary: "#EC7000",
+    secondary: "#003366",
+    text: "#FFFFFF",
+  },
+};
+```
+
+### Fontes
+
+A fonte **Montserrat** é carregada via Google Fonts no `index.html` e aplicada globalmente através do `GlobalStyles.ts` para garantir consistência em todos os componentes.
+
+## 📦 Build para WebView
+
+O build gera um bundle otimizado em `dist/`:
+
+```bash
+npm run build
+```
+
+O output pode ser servido em um servidor web ou incorporado diretamente na WebView nativa.
 
 ## 🔧 Dependências Principais
 
