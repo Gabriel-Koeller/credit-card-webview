@@ -2,7 +2,7 @@
  * @fileoverview Estilos da página de cartões - Design Itaú
  */
 
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from "styled-components";
 
 const fadeIn = keyframes`
   from {
@@ -28,7 +28,9 @@ export const Header = styled.header`
   align-items: center;
   gap: ${({ theme }) => theme.spacing.md};
   padding: ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.md};
-  padding-top: calc(${({ theme }) => theme.spacing.md} + env(safe-area-inset-top));
+  padding-top: calc(
+    ${({ theme }) => theme.spacing.md} + env(safe-area-inset-top)
+  );
   background: ${({ theme }) => theme.colors.surface};
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 `;
@@ -44,7 +46,7 @@ export const BackButton = styled.button`
   padding: 0;
   margin: 0;
   color: ${({ theme }) => theme.colors.text};
-  
+
   svg {
     width: 20px;
     height: 20px;
@@ -82,7 +84,9 @@ export const Content = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding-bottom: calc(${({ theme }) => theme.spacing.xl} + env(safe-area-inset-bottom));
+  padding-bottom: calc(
+    ${({ theme }) => theme.spacing.xl} + env(safe-area-inset-bottom)
+  );
   animation: ${fadeIn} 0.4s ease-out;
 `;
 
@@ -120,13 +124,14 @@ export const InvoiceButton = styled.button`
   padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.md};
   background: transparent;
   border: none;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primary} !important;
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
   font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
 
   svg {
     width: 16px;
     height: 16px;
+    color: inherit;
   }
 
   &:active {
@@ -179,7 +184,8 @@ export const InfoRight = styled.div`
 export const InfoValue = styled.span<{ $highlight?: boolean }>`
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
   font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
-  color: ${({ theme, $highlight }) => $highlight ? theme.colors.primary : theme.colors.text};
+  color: ${({ theme, $highlight }) =>
+    $highlight ? theme.colors.primary : theme.colors.text} !important;
 `;
 
 export const InfoSubValue = styled.span`
@@ -250,11 +256,12 @@ export const ServiceIcon = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primary} !important;
 
   svg {
     width: 24px;
     height: 24px;
+    color: inherit;
   }
 `;
 

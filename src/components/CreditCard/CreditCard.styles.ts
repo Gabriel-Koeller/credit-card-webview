@@ -148,10 +148,16 @@ export const CardFooter = styled.div`
   z-index: 1;
 `;
 
-export const CardBrand = styled.div`
+export const CardBrand = styled.div<{ $brand?: string }>`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  
   svg {
-    height: 28px;
+    height: ${({ $brand }) => $brand === 'mastercard' ? '36px' : '28px'};
     width: auto;
+    display: block;
+    flex-shrink: 0;
   }
 `;
 
