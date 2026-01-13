@@ -1,0 +1,105 @@
+/**
+ * @fileoverview Definição do tema da aplicação
+ */
+
+import type { Theme } from "../types";
+
+export const theme: Theme = {
+  colors: {
+    primary: "#EC7000",
+    primaryLight: "#FF8C2E",
+    primaryDark: "#D35400",
+    secondary: "#003366",
+    secondaryLight: "#1A4D7C",
+    secondaryDark: "#002244",
+    success: "#2ECC71",
+    successLight: "#58D68D",
+    warning: "#F5A623",
+    warningLight: "#F7C873",
+    error: "#E74C3C",
+    errorLight: "#EC7063",
+    background: "#F5F6FA",
+    backgroundSecondary: "#FFFFFF",
+    surface: "#FFFFFF",
+    surfaceElevated: "#FFFFFF",
+    text: "#1A1A2E",
+    textSecondary: "#5C6370",
+    textMuted: "#9BA3AF",
+    border: "#E8ECF0",
+    borderLight: "#F0F2F5",
+    overlay: "rgba(0, 0, 0, 0.4)",
+  },
+  spacing: {
+    xxs: "0.25rem",
+    xs: "0.5rem",
+    sm: "0.75rem",
+    md: "1rem",
+    lg: "1.5rem",
+    xl: "2rem",
+    xxl: "2.5rem",
+    xxxl: "3rem",
+  },
+  typography: {
+    fontFamily:
+      "'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    fontFamilyMono: "'JetBrains Mono', 'Fira Code', Consolas, monospace",
+    fontSize: {
+      xs: "0.75rem",
+      sm: "0.875rem",
+      md: "1rem",
+      lg: "1.125rem",
+      xl: "1.25rem",
+      xxl: "1.5rem",
+      xxxl: "2rem",
+    },
+    fontWeight: {
+      regular: 400,
+      medium: 500,
+      semibold: 600,
+      bold: 700,
+    },
+    lineHeight: {
+      tight: 1.25,
+      normal: 1.5,
+      relaxed: 1.75,
+    },
+  },
+  borderRadius: {
+    none: "0",
+    sm: "0.375rem",
+    md: "0.5rem",
+    lg: "0.75rem",
+    xl: "1rem",
+    full: "9999px",
+  },
+  shadows: {
+    none: "none",
+    sm: "0 1px 3px rgba(0, 0, 0, 0.08)",
+    md: "0 4px 12px rgba(0, 0, 0, 0.1)",
+    lg: "0 8px 24px rgba(0, 0, 0, 0.12)",
+    xl: "0 16px 32px rgba(0, 0, 0, 0.14)",
+    card: "0 12px 40px rgba(236, 112, 0, 0.2), 0 4px 16px rgba(0, 0, 0, 0.1)",
+  },
+  breakpoints: {
+    xs: "320px",
+    sm: "480px",
+    md: "768px",
+    lg: "1024px",
+    xl: "1280px",
+  },
+  transitions: {
+    fast: "150ms cubic-bezier(0.4, 0, 0.2, 1)",
+    normal: "250ms cubic-bezier(0.4, 0, 0.2, 1)",
+    slow: "350ms cubic-bezier(0.4, 0, 0.2, 1)",
+  },
+  zIndex: {
+    base: 0,
+    dropdown: 100,
+    sticky: 200,
+    fixed: 300,
+    modalBackdrop: 400,
+    modal: 500,
+    popover: 600,
+    tooltip: 700,
+  },
+} as const;
