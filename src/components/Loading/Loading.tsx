@@ -38,8 +38,18 @@ export const Skeleton: FC<SkeletonProps> = ({
   );
 };
 
-export const CardSkeleton: FC = () => {
-  return <S.CardSkeleton />;
+export const CardSkeleton: FC<{ count?: number }> = ({ count = 1 }) => {
+  if (count === 1) {
+    return <S.CardSkeleton />;
+  }
+
+  return (
+    <S.CardSkeletonContainer>
+      {Array.from({ length: count }).map((_, index) => (
+        <S.CardSkeletonItem key={index} />
+      ))}
+    </S.CardSkeletonContainer>
+  );
 };
 
 export const ListSkeleton: FC<{ count?: number }> = ({ count = 3 }) => {

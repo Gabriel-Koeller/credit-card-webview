@@ -3,7 +3,7 @@
  */
 
 import { type FC, useState, useCallback, useEffect } from "react";
-import { CardList } from "../../components";
+import { CardList, CardSkeleton } from "../../components";
 import { useWebView } from "../../hooks";
 import { getMockCards, formatCurrency } from "../../services";
 import type { CreditCard } from "../../types";
@@ -21,7 +21,9 @@ export const CardsPage: FC = () => {
       setIsLoading(true);
       await new Promise((resolve) => setTimeout(resolve, 600));
       const mockCards = getMockCards();
+      // Para testar o CardSkeleton, comente a linha abaixo temporariamente:
       setCards(mockCards);
+      // setCards([]); // Descomente esta linha para ver o CardSkeleton
       const firstCard = mockCards[0];
       if (firstCard) {
         setSelectedCard(firstCard);
@@ -82,11 +84,15 @@ export const CardsPage: FC = () => {
 
       <S.Content>
         {/* Carousel de Cartões */}
-        <CardList
-          cards={cards}
-          selectedCardId={selectedCard?.id}
-          onCardSelect={handleCardSelect}
-        />
+        {cards.length < 0 ? (
+          <CardSkeleton count={3} />
+        ) : (
+          <CardList
+            cards={cards}
+            selectedCardId={selectedCard?.id}
+            onCardSelect={handleCardSelect}
+          />
+        )}
 
         {selectedCard && (
           <>
